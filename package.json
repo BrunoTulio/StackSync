@@ -1,0 +1,28 @@
+{
+  "name": "stacksync",
+  "version": "1.0.0",
+  "description": "Ferramenta automatizada para atualizar stacks no Portainer através do Web Editor",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "portainer",
+    "docker",
+    "automation",
+    "stack",
+    "update",
+    "puppeteer"
+  ],
+  "author": "Bruno Túlio",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BrunoTulio/stacksync"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "puppeteer": "^23.11.1",
+    "winston": "^3.17.0"
+  }
+}
