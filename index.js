@@ -275,10 +275,13 @@ async function main() {
     
     const page = await browser.newPage();
     page.setDefaultTimeout(config.timeout);
-    
-    // Login
+
     await withRetry(async () => {
       await page.goto(config.url);
+    },  'acesso a pagina')
+
+    // Login
+    await withRetry(async () => {
       await page.type('#username', config.username);
       await page.type('#password', config.password);
       await page.click('button[type="submit"]');
