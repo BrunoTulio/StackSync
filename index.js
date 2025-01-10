@@ -270,11 +270,14 @@ async function main() {
     
     browser = await puppeteer.launch({
       headless: config.isProd,
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
+      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
     });
     
     const page = await browser.newPage();
     page.setDefaultTimeout(config.timeout);
+
+    await page.context().clearCookies();
+    await page.setCacheEnabled(false);  
 
     await withRetry(async () => {
       await page.goto(config.url);
