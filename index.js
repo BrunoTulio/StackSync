@@ -283,7 +283,7 @@ async function main() {
     await page.setCacheEnabled(false);  
 
     await withRetry(async () => {
-      await page.goto(config.url);
+      await page.goto(config.url, {waitUntil: 'networkidle0' });
     },  'acesso a pagina')
 
     // Login
