@@ -276,7 +276,10 @@ async function main() {
     const page = await browser.newPage();
     page.setDefaultTimeout(config.timeout);
 
-    await page.context().clearCookies();
+    const cookies = await page.cookies();
+    if (cookies.length > 0) {
+      await page.deleteCookie(...cookies);  
+    }
     await page.setCacheEnabled(false);  
 
     await withRetry(async () => {
